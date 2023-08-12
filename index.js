@@ -9,9 +9,9 @@ const port = process.env.PORT || 3000
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
-app.use("/public", express.static(process.cwd() + "/public"))
+app.use("/public", express.static(__dirname + "/public"))
 
-app.get("/", (req, res) => res.sendFile(process.cwd() + "/views/index.html"))
+app.get("/", (req, res) => res.sendFile(__dirname + "/views/index.html"))
 
 app.get("/hello", (req, res) => res.send("Hello"))
 
